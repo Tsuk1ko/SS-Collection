@@ -1,0 +1,24 @@
+name: Update chn_ip.txt
+on:
+  schedule:
+    - cron: "0 0 15 * *"
+jobs:
+  update-chnip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v1
+      - name: update
+        run: |
+          cd tools
+          npm i
+          npm run update-chnip
+          cd ..
+      - name: push
+        uses: github-actions-x/commit@v2.3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          push-branch: 'master'
+          commit-message: 'Update chn_ip.txt'
+          name: GitHub Action
+          email: action@github.com
