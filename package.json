@@ -1,0 +1,12 @@
+{
+  "name": "ss-collection",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "update-chnip": "node scripts/update-chnip.js"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "netmask": "^2.0.2"
+  }
+}
